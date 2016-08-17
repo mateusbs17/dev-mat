@@ -1,0 +1,22 @@
+work(){
+project=$1
+workspace="/var/www"
+
+
+if [ $project ]; then
+	if [ -d "$workspace/$project" ]; then
+		WID=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)"| awk '{print $5}')
+		xdotool windowfocus $WID
+		xdotool key ctrl+shift+t
+		xdotool type "cd /var/www/$project; clear;"
+		xdotool key Return
+		wmctrl -i -a $WID
+		source workspace.sh;
+		cd /var/www/$project;
+		grunt;
+	else
+		echo "Projeto não foi encontrado"
+	fi
+fi
+
+}
