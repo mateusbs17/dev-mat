@@ -2,6 +2,7 @@ work(){
 project=$1
 workspace="/var/www"
 
+sh workspace.sh;
 
 if [ $project ]; then
 	if [ -d "$workspace/$project" ]; then
@@ -11,7 +12,6 @@ if [ $project ]; then
 		xdotool type "cd /var/www/$project; clear;"
 		xdotool key Return
 		wmctrl -i -a $WID
-		source workspace.sh;
 		cd /var/www/$project;
 		grunt;
 	else
