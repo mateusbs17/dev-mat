@@ -1,1 +1,10 @@
 source ~/.dev-mat/helpers
+alias sigiprc="cd /var/www/sigiprc"
+alias spot-backend="cd /var/www/spot-backend"
+alias spot-api="cd /var/www/spot-api"
+alias gmg="git merge --no-ff --no-edit"
+alias gpl="git pull origin"
+alias gpsh="git push origin"
+alias gacm="git add . && git commit -m"
+alias gmg="git merge --no-ff --no-edit"
+alias gadd="git diff && git add -A :/ && gst"
