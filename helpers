@@ -2,7 +2,7 @@ work(){
 project=$1
 workspace="/var/www"
 
-sh workspace.sh;
+sh ~/.dev-mat/workspace.sh;
 
 if [ $project ]; then
 	if [ -d "$workspace/$project" ]; then
