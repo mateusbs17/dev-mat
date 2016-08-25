@@ -48,3 +48,7 @@ if [ $project ]; then
 fi
 
 }
+eclipse(){
+PASSWORD="$(cat ~/.dev-mat/.password | openssl enc -aes-256-cbc -a -d -salt -pass pass:123)"
+sudo -b -p $PASSWORD -u mateus ~/eclipse/eclipse
+}
