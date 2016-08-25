@@ -1,8 +1,11 @@
 work(){
 project=$1
+initDevTools=$2
 workspace="/var/www"
 
-sh ~/.dev-mat/workspace.sh;
+if [ "$initDevTools" = true ]; then
+	sh ~/.dev-mat/workspace.sh;
+fi
 
 if [ $project ]; then
 	if [ -d "$workspace/$project" ]; then
@@ -13,7 +16,32 @@ if [ $project ]; then
 		xdotool key Return
 		wmctrl -i -a $WID
 		cd /var/www/$project;
+		case "$project" in
+		'spot-api')
+		sudo service apache2 stop
+		sudo service postgresql stop
+		sudo service mysql stop
+		docker stop $(docker ps -a -q)
+		docker rm $(docker ps -a -q)
+		docker-compose up -d
+		;;
+		'sigiprc')
+		docker stop $(docker ps -a -q)
+		docker rm $(docker ps -a -q)
+		sudo service apache2 start
+		sudo service postgresql start
 		grunt;
+		;;
+		'sigbauru')
+		docker stop $(docker ps -a -q)
+		docker rm $(docker ps -a -q)
+		sudo service apache2 start
+		sudo service postgresql start
+		grunt;
+		;;
+		esac
+	elif [ "$project" = "default" ]; then
+		echo "Bom dia senhor Stark!"
 	else
 		echo "Projeto não foi encontrado"
 	fi
