@@ -1,4 +1,5 @@
 source ~/dev-mat/helpers
+source ~/dev-mat/bambike
 
 #WORK HARD AT INSTITUTO SOMA
 alias sigiprc="cd /var/www/sigiprc"
