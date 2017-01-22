@@ -1,6 +1,6 @@
 source ~/dev-mat/helpers
 source ~/dev-mat/ibbo
-source ~/dev-mat/tesseract
+source ~/dev-mat/tesseract/aliases
 
 #WORK HARD AT HOME
 alias wkibbo="cd ~/workspace/ibbo"
