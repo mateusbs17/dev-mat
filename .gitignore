@@ -1,3 +1,4 @@
 .password
 .user
+.ssl_pass
 *.pem
