@@ -1,18 +1,11 @@
 source ~/dev-mat/helpers
-source ~/dev-mat/bambike
-
-#WORK HARD AT INSTITUTO SOMA
-alias sigiprc="cd /var/www/sigiprc"
-alias spot-backend="cd /var/www/spot-backend"
-alias spot-api="cd /var/www/spot-api"
-alias sigip="cd /var/www/sigiprc"
-alias sigbauru="cd /var/www/sigbauru"
+source ~/dev-mat/ibbo
+source ~/dev-mat/tesseract
 
 #WORK HARD AT HOME
 alias wkibbo="cd ~/workspace/ibbo"
 alias wkcarrossel="cd ~/workspace/carrossel-caipira"
 alias dssjo="cd /var/www/dssjo"
-alias niai="cd /var/www/phase_aedromo/niai"
 
 #WORK HARD ANYWHERE
 alias gmg="git merge --no-ff --no-edit"
@@ -21,5 +14,5 @@ alias gpsh="git push origin"
 alias gacm="git add . && git commit -m"
 alias gmg="git merge --no-ff --no-edit"
 alias gadd="git diff && git add -A :/ && gst"
-alias good_morning="work default true"
+alias hello_jarvs="work default true"
 

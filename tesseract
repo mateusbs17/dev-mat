@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+# Project Eazyn
+alias te_artisan="docker exec eazyn_php php artisan"
+alias te_composer="docker exec eazyn_php composer"
+alias te_android="docker exec ionic_eazyn ionic run android -lc device"
+
