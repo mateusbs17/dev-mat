@@ -2,3 +2,4 @@
 .user
 .ssl_pass
 *.pem
+relatorio_diario.sh

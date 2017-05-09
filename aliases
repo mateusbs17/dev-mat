@@ -14,5 +14,5 @@ alias gpsh="git push origin"
 alias gacm="git add . && git commit -m"
 alias gmg="git merge --no-ff --no-edit"
 alias gadd="git diff && git add -A :/ && gst"
-alias hello_jarvs="work default true"
+alias hello_jarvis="work default true"
 
