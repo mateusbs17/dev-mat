@@ -11,5 +11,5 @@ Create your hidden files `.ssl_pass`, `.password` e `.user`
 Generate through the command
 
 ```
-echo 'UserPassword' | openssl enc -aes-256-cbc -a -e -salt -pass pass:$SSLPASS > ~/dev-mat/auth/.password
+echo 'UserPassword' | openssl enc -aes-256-cbc -a -e -salt -pass pass:$SSLPASS > ${DEVOPS_SRC_PATH}/auth/.password
 ```

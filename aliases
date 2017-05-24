@@ -1,6 +1,7 @@
-source ~/dev-mat/helpers
-source ~/dev-mat/ibbo
-source ~/dev-mat/tesseract/aliases
+source ./.env
+source ${DEVOPS_SRC_PATH}/helpers
+source ${DEVOPS_SRC_PATH}/ibbo
+source ${DEVOPS_SRC_PATH}/tesseract/aliases
 
 #WORK HARD AT HOME
 alias wkibbo="cd ~/workspace/ibbo"
