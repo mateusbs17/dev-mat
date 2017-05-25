@@ -1,5 +1,6 @@
 source ./.env
 source ${DEVOPS_SRC_PATH}/helpers
+source ${DEVOPS_SRC_PATH}/tools
 source ${DEVOPS_SRC_PATH}/ibbo
 source ${DEVOPS_SRC_PATH}/tesseract/aliases
 
