@@ -49,7 +49,7 @@ fi
 
 }
 eclipse(){
-SSLPASS="$(cat ~/dev-mat/auth/.ssl_pass)"
-PASSWORD="$(cat ~/dev-mat/auth/.password | openssl enc -aes-256-cbc -a -d -salt -pass pass:$SSLPASS)"
+SSLPASS="$(cat ${DEVOPS_SRC_PATH}/auth/.ssl_pass)"
+PASSWORD="$(cat ${DEVOPS_SRC_PATH}/auth/.password | openssl enc -aes-256-cbc -a -d -salt -pass pass:$SSLPASS)"
 sudo -b -p $PASSWORD -u mateus ~/eclipse/eclipse
 }
