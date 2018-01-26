@@ -1,8 +1,10 @@
-source .env
+DEVOPS_SRC_PATH="$HOME/mydevops"
+
 source ${DEVOPS_SRC_PATH}/helpers
 source ${DEVOPS_SRC_PATH}/tools
-source ${DEVOPS_SRC_PATH}/ibbo
-source ${DEVOPS_SRC_PATH}/tesseract/aliases
+source ${DEVOPS_SRC_PATH}/company/ibbo/aliases
+source ${DEVOPS_SRC_PATH}/company/tesseract/aliases
+source ${DEVOPS_SRC_PATH}/company/mateusbs17/aliases
 
 #WORK HARD AT HOME
 alias wkibbo="cd ~/workspace/ibbo"

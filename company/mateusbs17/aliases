@@ -1,0 +1,2 @@
+alias aipy="docker exec -it aitools_python_1 python"
+alias aipybash="docker exec -it aitools_python_1 bash"

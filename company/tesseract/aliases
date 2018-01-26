@@ -4,7 +4,7 @@
 alias te_artisan="docker exec eazyn_php php artisan"
 alias te_composer="docker exec eazyn_php composer"
 alias te_android="docker exec ionic_eazyn ionic run android -lc device"
-alias te_login="ssh -i ~/dev-mat/tesseract/auth/tesseract.pem $(cat ~/dev-mat/tesseract/auth/.user)@tesseract"
+alias te_login="ssh -i ${DEVOPS_SRC_PATH}/company/tesseract/auth/tesseract.pem $(cat ${DEVOPS_SRC_PATH}/company/tesseract/auth/.user)@tesseract"
 
 # Projetc TIC SMS
 

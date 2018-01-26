@@ -48,6 +48,25 @@ if [ $project ]; then
 fi
 
 }
+
+# modo distraction free
+dist_free_enable() {
+    sudo sed -i '$a\
+0.0.0.0 www.facebook.com\
+0.0.0.0 facebook.com\
+0.0.0.0 www.twitter.com\
+0.0.0.0 twitter.com\
+0.0.0.0 www.reddit.com\
+0.0.0.0 reddit.com\
+0.0.0.0 www.web.whatsapp.com\
+0.0.0.0 web.whatsapp.com\
+        ' /etc/hosts
+}
+
+dist_free_disable() {
+    sudo sed -i '/facebook/d;/twitter/d;/reddit/d;/whatsapp/d' /etc/hosts
+}
+
 eclipse(){
 SSLPASS="$(cat ${DEVOPS_SRC_PATH}/auth/.ssl_pass)"
 PASSWORD="$(cat ${DEVOPS_SRC_PATH}/auth/.password | openssl enc -aes-256-cbc -a -d -salt -pass pass:$SSLPASS)"
