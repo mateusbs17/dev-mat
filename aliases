@@ -1,5 +1,6 @@
 DEVOPS_SRC_PATH="$HOME/mydevops"
 
+source ${DEVOPS_SRC_PATH}/.env
 source ${DEVOPS_SRC_PATH}/helpers
 source ${DEVOPS_SRC_PATH}/tools
 source ${DEVOPS_SRC_PATH}/company/ibbo/aliases
