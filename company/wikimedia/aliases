@@ -1,0 +1,7 @@
+#!/bin/sh
+
+alias rbtest_cassandra="docker run --name restbase_cassandra spotify/cassandra -p 9042:9042 --net=host "
+alias cqlsh="docker exec restbase_cassandra cqlsh"
+
+source ${DEVOPS_SRC_PATH}/company/wikimedia/maps
+source ${DEVOPS_SRC_PATH}/company/wikimedia/mwvagrant

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Pivotal API wrapper
+# ===================================================
+# $1 = Endpoint to access on Pivotal API
+pivotal() {
+  ENDPOINT=$1
+  curl -sS -X GET -H "X-TrackerToken: ${PIVOTALTRACKER_TOKEN}" "https://www.pivotaltracker.com/services/v5/${ENDPOINT}"
+}
+

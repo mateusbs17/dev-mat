@@ -1,16 +1,20 @@
-DEVOPS_SRC_PATH="$HOME/mydevops"
+#!/bin/bash
+
+DEVOPS_SRC_PATH="$HOME/devops"
 
 source ${DEVOPS_SRC_PATH}/.env
 source ${DEVOPS_SRC_PATH}/helpers
-source ${DEVOPS_SRC_PATH}/tools
+source ${DEVOPS_SRC_PATH}/tools/docker
+source ${DEVOPS_SRC_PATH}/tools/hardware
+source ${DEVOPS_SRC_PATH}/tools/pivotal
 source ${DEVOPS_SRC_PATH}/company/ibbo/aliases
 source ${DEVOPS_SRC_PATH}/company/tesseract/aliases
 source ${DEVOPS_SRC_PATH}/company/mateusbs17/aliases
+source ${DEVOPS_SRC_PATH}/company/wikimedia/aliases
 
 #WORK HARD AT HOME
 alias wkibbo="cd ~/workspace/ibbo"
 alias wkcarrossel="cd ~/workspace/carrossel-caipira"
-alias dssjo="cd /var/www/dssjo"
 
 #WORK HARD ANYWHERE
 alias gmg="git merge --no-ff --no-edit"
@@ -20,4 +24,5 @@ alias gacm="git add . && git commit -m"
 alias gmg="git merge --no-ff --no-edit"
 alias gadd="git diff && git add -A :/ && gst"
 alias hello_jarvis="work default true"
+alias rsyncprg="rsync -avzh --progress"
 

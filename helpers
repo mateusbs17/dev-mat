@@ -1,74 +1,55 @@
-work(){
-project=$1
-initDevTools=$2
-workspace="/var/www"
-
-if [ "$initDevTools" = true ]; then
-	sh ~/dev-mat/workspace.sh;
-fi
-
-if [ $project ]; then
-	if [ -d "$workspace/$project" ]; then
-		WID=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)"| awk '{print $5}')
-		xdotool windowfocus $WID
-		xdotool key ctrl+shift+t
-		xdotool type "cd /var/www/$project; clear;"
-		xdotool key Return
-		wmctrl -i -a $WID
-		cd /var/www/$project;
-		case "$project" in
-		'spot-api')
-		sudo service apache2 stop
-		sudo service postgresql stop
-		sudo service mysql stop
-		docker stop $(docker ps -a -q)
-		docker rm $(docker ps -a -q)
-		docker-compose up -d
-		;;
-		'sigiprc')
-		docker stop $(docker ps -a -q)
-		docker rm $(docker ps -a -q)
-		sudo service apache2 start
-		sudo service postgresql start
-		grunt;
-		;;
-		'sigbauru')
-		docker stop $(docker ps -a -q)
-		docker rm $(docker ps -a -q)
-		sudo service apache2 start
-		sudo service postgresql start
-		grunt;
-		;;
-		esac
-	elif [ "$project" = "default" ]; then
-		echo "Bom dia senhor Stark!"
-	else
-		echo "Projeto não foi encontrado"
-	fi
-fi
-
-}
-
-# modo distraction free
-dist_free_enable() {
-    sudo sed -i '$a\
-0.0.0.0 www.facebook.com\
-0.0.0.0 facebook.com\
-0.0.0.0 www.twitter.com\
-0.0.0.0 twitter.com\
-0.0.0.0 www.reddit.com\
-0.0.0.0 reddit.com\
-0.0.0.0 www.web.whatsapp.com\
-0.0.0.0 web.whatsapp.com\
-        ' /etc/hosts
-}
-
-dist_free_disable() {
-    sudo sed -i '/facebook/d;/twitter/d;/reddit/d;/whatsapp/d' /etc/hosts
-}
+#!/bin/bash
 
 eclipse(){
 SSLPASS="$(cat ${DEVOPS_SRC_PATH}/auth/.ssl_pass)"
 PASSWORD="$(cat ${DEVOPS_SRC_PATH}/auth/.password | openssl enc -aes-256-cbc -a -d -salt -pass pass:$SSLPASS)"
 sudo -b -p $PASSWORD -u mateus ~/eclipse/eclipse
 }
+
+# Variáveis das cores utilizadas no output.
+COLOR_DEFAULT='\033[0m'
+COLOR_GRAY='\033[2m'
+COLOR_RED='\033[0;31m'
+COLOR_GREEN='\033[0;32m'
+COLOR_YELLOW='\033[0;33m'
+COLOR_BLUE='\033[0;34m'
+COLOR_WHITE='\033[0;37m'
+COLOR_BOLD_WHITE='\033[1;37m'
+
+
+# CHECK_SYMBOL
+# ==========================================
+#
+# Ícone check ✔ com cor verde.
+CHECK_SYMBOL="${COLOR_GREEN}\u2714${COLOR_DEFAULT}"
+
+# ERROR_SYMBOL
+# ==========================================
+#
+# Ícone de erro ✖ com cor vermelha.
+ERROR_SYMBOL="${COLOR_RED}\u2716${COLOR_DEFAULT}"
+
+
+# Variáveis utilizadas para remover indentação
+# no output dos métodos.
+# TODO: Fortes candidatos a serem deletados.
+
+# 1 Tab
+indent1x='
+  '
+
+# 2 Tabs
+indent2x='
+    '
+
+# 3 Tabs
+indent3x='
+      '
+
+# 4 Tabs
+indent4x='
+        '
+
+# 5 Tabs
+indent5x='
+          '

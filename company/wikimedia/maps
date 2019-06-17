@@ -1,0 +1,45 @@
+#!/bin/sh
+
+wmfmaps() (
+
+    deploy() {
+        project=$2
+        case $3 in
+            test|--test)
+                cd $WMF_WORKSPACE/maps/deploy/$project/package
+                ./server.js docker-test
+                ;;
+            *)
+                # Prepare package repo for build
+                cd $WMF_WORKSPACE/maps/deploy/$project/package
+                git status
+                git reset --hard origin/master && git checkout . && git clean -fd && git checkout master && git pull
+                git status
+                git --no-pager log --decorate -n 1
+                rm -rf node_modules/ && npm install service-runner
+
+                # Prepare deploy repo for build
+                cd $WMF_WORKSPACE/maps/deploy/$project/deploy
+                git status
+                git reset --hard origin/master && git checkout . && git clean -fd && git checkout master && git pull
+                git --no-pager log --decorate -n 1
+                git submodule update --init
+                git branch
+                git status
+                cd $WMF_WORKSPACE/maps/deploy/$project/package
+
+                # Build
+                ./server.js build --deploy-repo --force
+
+                #
+                cd $WMF_WORKSPACE/maps/deploy/$project/deploy
+                ;;
+        esac
+    }
+
+    case $1 in
+        D|-D|deploy|--deploy) deploy $@;;
+        h|-h|help|--help)       help;;
+        *) help;;
+    esac
+)

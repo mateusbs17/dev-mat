@@ -1,0 +1,38 @@
+#!/bin/sh
+
+mwvagrant() (
+
+    help () {
+        version
+        echo "
+          MediaWiki-Vagrant devops util.
+          ${COLOR_BOLD_WHITE}usage:${COLOR_DEFAULT}
+            devops [command]
+            dv [command]
+          ${COLOR_BOLD_WHITE}commands:${COLOR_DEFAULT}
+            h, help
+            i, wikidata_enable_role" | cut -b "${#indent3x}-"
+    }
+
+    before(){
+        vagrant up
+    }
+
+    wikidata_enable_role () {
+        vagrant git-update
+        vagrant ssh
+ssh user@ip << EOF
+    sudo apt-get update && sudo apt-get upgrade
+    composer selfupdate --update-keys
+    composer config --global process-timeout 9600
+EOF
+        vagrant roles enable wikidata
+        vagrant provision
+    }
+
+    case $1 in
+        wikidata_enable_role|--wikidata_enable_role) wikidata_enable_role;;
+        h|-h|help|--help)       help;;
+        *) help;;
+    esac
+)

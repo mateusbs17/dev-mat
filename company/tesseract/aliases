@@ -1,12 +1,4 @@
 #!/usr/bin/sh
 
 # Project Eazyn
-alias te_artisan="docker exec eazyn_php php artisan"
-alias te_composer="docker exec eazyn_php composer"
-alias te_android="docker exec ionic_eazyn ionic run android -lc device"
 alias te_login="ssh -i ${DEVOPS_SRC_PATH}/company/tesseract/auth/tesseract.pem $(cat ${DEVOPS_SRC_PATH}/company/tesseract/auth/.user)@tesseract"
-
-# Projetc TIC SMS
-
-alias ticup='cd /var/www/tic-sms/laradock && docker-compose up -d workspace postgres pgadmin php-fpm nginx'
-alias ticexec='cd /var/www/tic-sms/laradock && docker-compose exec workspace && cd -'

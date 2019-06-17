@@ -1,0 +1,11 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Backup data storage
+BindsTo=dev-sdc1.device mnt-backup.mount
+After=dev-sdc1.device mnt-backup.mount
+
+[Service]
+WorkingDirectory=/home/mateus/devops/backup/
+ExecStart=/bin/bash backup-data.sh
